@@ -10,20 +10,33 @@
     "Other"
   ],
   "activationEvents": [
-    "onCommand:progress-todo.helloWorld"
+    "onView:nodeDependencies"
   ],
   "main": "./out/extension.js",
   "contributes": {
-    "commands": [
-      {
-        "command": "progress-todo.helloWorld",
-        "title": "Hello World"
-      }
-    ]
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "progress-todo",
+          "title": "Progress",
+          "icon": "media/icon.svg"
+        }
+      ]
+    },
+    "views": {
+      "progress-todo": [
+        {
+          "id": "progress-todo",
+          "name": "Progress",
+          "icon": "media/icon.svg",
+          "contextualTitle": "Progress"
+        }
+      ]
+    }
   },
   "scripts": {
     "vscode:prepublish": "npm run esbuild-base -- --minify",
-    "esbuild-base": "esbuild ./src/extension.ts --bundle --outfile=out/main.js --external:vscode --format=cjs --platform=node",
+    "esbuild-base": "esbuild ./src/extension.ts --bundle --outfile=out/extension.js --external:vscode --format=cjs --platform=node",
     "esbuild": "npm run esbuild-base -- --sourcemap",
     "esbuild-watch": "npm run esbuild-base -- --sourcemap --watch",
     "test-compile": "tsc -p ./",
