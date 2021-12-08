@@ -10,21 +10,21 @@
     "Other"
   ],
   "activationEvents": [
-    "onView:nodeDependencies"
+    "onView:progress-todo"
   ],
   "main": "./out/extension.js",
   "contributes": {
     "viewsContainers": {
       "activitybar": [
         {
-          "id": "progress-todo",
+          "id": "progress-todo-activitybar",
           "title": "Progress",
           "icon": "media/icon.svg"
         }
       ]
     },
     "views": {
-      "progress-todo": [
+      "progress-todo-activitybar": [
         {
           "id": "progress-todo",
           "name": "Progress",
